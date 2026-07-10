@@ -3,17 +3,17 @@ import 'pages/home_page.dart';
 import 'pages/berita_page.dart';
 import 'pages/profil_page.dart';
 
-class HomeNav extends StatefulWidget {
-  const HomeNav({super.key});
+class HomeNavigation extends StatefulWidget {
+  const HomeNavigation({super.key});
 
   @override
-  State<HomeNav> createState() => _HomeNavState();
+  State<HomeNavigation> createState() => _HomeNavigationState();
 }
 
-class _HomeNavState extends State<HomeNav> {
+class _HomeNavigationState extends State<HomeNavigation> {
   int _selectedIndex = 0;
 
-  // List halaman yang akan ditampilkan sesuai index tab
+  // Item navigasi: [Home, Berita, Profil]
   final List<Widget> _pages = [
     const HomePage(),
     const BeritaPage(),
@@ -32,9 +32,18 @@ class _HomeNavState extends State<HomeNav> {
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.article), label: 'Berita'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profil'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.newspaper),
+            label: 'Berita',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profil',
+          ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue,

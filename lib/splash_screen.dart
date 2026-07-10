@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'home_nav.dart';
+import 'home_navigation.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -12,30 +12,38 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    super.key;
-    // Timer 5 detik sesuai instruksi soal nomor 2
+    super.initState();
+    // Durasi 5 detik sebelum pindah ke Beranda (HomeNavigation) sesuai instruksi soal
     Timer(const Duration(seconds: 5), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const HomeNav()),
+        MaterialPageRoute(builder: (context) => const HomeNavigation()),
       );
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Gunakan gambar dari internet agar praktis saat demo ujian
-            Image(
-              image: NetworkImage('https://picsum.photos/200'), 
+            // Menampilkan gambar dari Network agar praktis saat diuji
+            Image.network(
+              'https://picsum.photos/200', 
               width: 150,
+              height: 150,
+              fit: BoxFit.cover,
             ),
-            SizedBox(height: 20),
-            CircularProgressIndicator(),
+            const SizedBox(height: 24),
+            const CircularProgressIndicator(),
+            const SizedBox(height: 16),
+            const Text(
+              "Loading Aplikasi UAS...",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            )
           ],
         ),
       ),

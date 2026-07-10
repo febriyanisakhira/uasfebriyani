@@ -11,12 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'UAS Mobile',
+      title: 'mobile_uas_febriyanisakhira_2303311338',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
       ),
-      home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
+      home: const SplashScreen(),
     );
   }
 }
